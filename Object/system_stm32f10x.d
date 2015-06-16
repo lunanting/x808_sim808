@@ -1,0 +1,14 @@
+.\object\system_stm32f10x.o: CMSIS\system_stm32f10x.c
+.\object\system_stm32f10x.o: CMSIS\stm32f10x.h
+.\object\system_stm32f10x.o: .\System\project_config.c
+.\object\system_stm32f10x.o: CMSIS\core_cm3.h
+.\object\system_stm32f10x.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\object\system_stm32f10x.o: CMSIS\system_stm32f10x.h
+.\object\system_stm32f10x.o: .\System\stm32f10x_conf.h
+.\object\system_stm32f10x.o: .\StdPeriph_Driver\inc\stm32f10x_exti.h
+.\object\system_stm32f10x.o: .\CMSIS\stm32f10x.h
+.\object\system_stm32f10x.o: .\StdPeriph_Driver\inc\stm32f10x_gpio.h
+.\object\system_stm32f10x.o: .\StdPeriph_Driver\inc\stm32f10x_rcc.h
+.\object\system_stm32f10x.o: .\StdPeriph_Driver\inc\stm32f10x_spi.h
+.\object\system_stm32f10x.o: .\StdPeriph_Driver\inc\stm32f10x_usart.h
+.\object\system_stm32f10x.o: .\StdPeriph_Driver\inc\misc.h

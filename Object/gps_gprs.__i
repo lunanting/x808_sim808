@@ -1,0 +1,6 @@
+-c --cpu Cortex-M3 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork -I.\App -I.\App\projectCode -I.\StdPeriph_Driver\inc -I.\System -I.\CMSIS -I.\GPS_GPRS --c99
+-I C:\Keil\ARM\RV31\INC
+-I C:\Keil\ARM\CMSIS\Include
+-I C:\Keil\ARM\Inc\ST\STM32F10x
+-DUSE_STDPERIPH_DRIVER -DSTM32F10X_HD
+-o .\object\gps_gprs.o --omf_browse .\object\gps_gprs.crf --depend .\object\gps_gprs.d "GPS_GPRS\gps_gprs.c"
