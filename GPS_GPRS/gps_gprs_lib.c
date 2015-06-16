@@ -68,14 +68,14 @@ GPRS_status gprs_state(char *p,char*c)
 	static GPRS_status state={0,0,0,0,0,0,0,0};
 	GPRS_status state_null={0,0,0,0,0,0,0,0};
 	if(strcmp(c,"read")==0)return state;
-	else if(strcmp(c,"cgmm")==0)state.cgmm=p;
-	else if(strcmp(c,"cgmr")==0)state.cgmr=p;
-	else if(strcmp(c,"cimi")==0)state.cimi=p;
-	else if(strcmp(c,"copn")==0)state.copn=p;
-	else if(strcmp(c,"cops")==0)state.cops=p;
-	else if(strcmp(c,"cpas")==0)state.cpas=p;
-	else if(strcmp(c,"csq")==0)state.csq=p;
-	else if(strcmp(c,"gps")==0)state.gps=p;
+	else if(strcmp(c,"cgmm")==0)strcpy(state.cgmm,p);
+	else if(strcmp(c,"cgmr")==0)strcpy(state.cgmm,p);
+	else if(strcmp(c,"cimi")==0)strcpy(state.cimi,p);
+	else if(strcmp(c,"copn")==0)strcpy(state.copn,p);
+	else if(strcmp(c,"cops")==0)strcpy(state.cops,p);
+	else if(strcmp(c,"cpas")==0)strcpy(state.cpas,p);
+	else if(strcmp(c,"csq")==0)strcpy(state.csq,p);
+	else if(strcmp(c,"gps")==0)strcpy(state.gps,p);
 	else return state_null;
 	return state;
 }
@@ -93,7 +93,25 @@ GPRS_status gprs_state(char *p,char*c)
 GPS_data gps_data(char *p)
 {
 	static GPS_data data={0,0,0,0,0};
-	
+	char bf[30]={NULL},*s=bf;u8 i;
+	if(strcmp(p,"read")==0)return data;
+	s=strtok(p,",");
+	for(i=0;i<10;i++)
+	{
+		switch(i)
+		{
+			case 1:strcpy(data.time,s);break;
+			case 3:strcpy(data.coordinate,s);break;
+			case 4:strcat(data.coordinate,s);break;
+			case 5:strcat(data.coordinate,s);break;
+			case 6:strcat(data.coordinate,s);break;
+			case 7:strcpy(data.speed,s);break;
+			case 8:strcpy(data.direction,s);break;
+			case 9:strcpy(data.date,s);break;
+		}
+		s=strtok(NULL,",");
+	}
+	return data;
 }
 
 
@@ -159,9 +177,11 @@ void discern_cmd_type(char *p,char *data)
 	else if(strncmp(p,"csq",3)==0)gprs_state(data,"csq");
 	//Ä£¿égps×´Ì¬
 	else if(strncmp(p,"cgpsstatus",10)==0)gprs_state(data,"gps");
-	else if(strncmp(p,"cgpsinf",7)==0)str="cgpsinf";
+	else if(strncmp(p,"cgpsinf",7)==0)gps_data(data);
 	return ;
 }
+
+
 
 
 

@@ -17,23 +17,23 @@ designed by lunanting
 /***数据类型定义***/
 typedef struct
 {
-	char *cgmm;			//模块型号
-	char *cgmr;			//模块固件版本
-	char *cops;			//注册情况
-	char *cimi;			//CIMI值
-	char *csq;			//信号强度
-	char *cpas;			//模块活动状态
-	char *copn;			//运营商名称
-	char *gps;			//GPS状态
+	char cgmm[50];			//模块型号
+	char cgmr[50];			//模块固件版本
+	char cops[50];			//注册情况
+	char cimi[50];			//CIMI值
+	char csq[10];			//信号强度
+	char cpas[5];			//模块活动状态
+	char copn[5];			//运营商名称
+	char gps[30];			//GPS状态
 } GPRS_status;
 
 typedef struct
 {
-	char *date;					//日期
-	char *time;					//时间
-	char *coordinate;		//坐标
-	char *speed;				//速度
-	char *direction;		//方向
+	char date[15];					//日期
+	char time[10];					//时间
+	char coordinate[30];		//坐标
+	char speed[10];				//速度
+	char direction[10];		//方向
 } GPS_data;
 
 /***函数申明***/

@@ -89,7 +89,12 @@ Section Cross References
     gps_gprs.o(.text) refers to gps_gprs.o(.constdata) for .constdata
     gps_gprs_lib.o(.text) refers to memseta.o(.text) for __aeabi_memclr4
     gps_gprs_lib.o(.text) refers to strcmp.o(.text) for strcmp
-    gps_gprs_lib.o(.text) refers to memcpya.o(.text) for __aeabi_memcpy4
+    gps_gprs_lib.o(.text) refers to memcpya.o(.text) for __aeabi_memcpy
+    gps_gprs_lib.o(.text) refers to strcpy.o(.text) for strcpy
+    gps_gprs_lib.o(.text) refers to strtok.o(.text) for strtok
+    gps_gprs_lib.o(.text) refers to strcat.o(.text) for strcat
+    gps_gprs_lib.o(.text) refers to strlen.o(.text) for strlen
+    gps_gprs_lib.o(.text) refers to strncmp.o(.text) for strncmp
     gps_gprs_lib.o(.text) refers to pack.o(.text) for usart_send_str
     gps_gprs_lib.o(.text) refers to gps_gprs_lib.o(.data) for state
     gps_gprs_lib.o(.text) refers to gps_gprs_lib.o(.bss) for state
@@ -303,6 +308,8 @@ Section Cross References
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry2.o(.ARM.Collect$$$$00000001) for _main_stk
+    strtok.o(.text) refers to strtok.o(.data) for .data
+    strtok_r.o(.text) refers to strtok_r.o(.data) for .data
     printfb.o(i.__0fprintf$bare) refers to printfb.o(i._printf_core) for _printf_core
     printfb.o(i.__0fprintf$bare) refers to function.o(.text) for fputc
     printfb.o(i.__0printf$bare) refers to printfb.o(i._printf_core) for _printf_core
@@ -599,10 +606,10 @@ Removing Unused input sections from the image.
     Removing core_cm3.o(.emb_text), (32 bytes).
     Removing stm32f10x_exti.o(.text), (284 bytes).
     Removing function.o(.bss), (40 bytes).
-    Removing gps_gprs.o(.text), (356 bytes).
+    Removing gps_gprs.o(.text), (556 bytes).
     Removing gps_gprs.o(.constdata), (20 bytes).
-    Removing gps_gprs_lib.o(.text), (412 bytes).
-    Removing gps_gprs_lib.o(.bss), (28 bytes).
+    Removing gps_gprs_lib.o(.text), (972 bytes).
+    Removing gps_gprs_lib.o(.bss), (325 bytes).
     Removing gps_gprs_lib.o(.data), (2 bytes).
     Removing rt_task.o(i.rt_tsk_pass), (48 bytes).
     Removing rt_task.o(i.rt_tsk_self), (16 bytes).
@@ -639,7 +646,7 @@ Removing Unused input sections from the image.
     Removing cdrcmple.o(.text), (40 bytes).
     Removing depilogue.o(.text), (190 bytes).
 
-42 unused section(s) (total 3810 bytes) removed from the image.
+42 unused section(s) (total 4867 bytes) removed from the image.
 
 ==============================================================================
 
@@ -651,47 +658,51 @@ Image Symbol Table
 
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
+    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloc.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocra.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloca.o ABSOLUTE
     ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  mallocr.o ABSOLUTE
-    ../clib/microlib/malloc/malloc.c         0x00000000   Number         0  malloc.o ABSOLUTE
     ../clib/microlib/malloc/mvars.c          0x00000000   Number         0  mvars.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
     ../clib/microlib/string/memcmp.c         0x00000000   Number         0  memcmp.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
     ../clib/microlib/string/memset.c         0x00000000   Number         0  memseta.o ABSOLUTE
+    ../clib/microlib/string/strcat.c         0x00000000   Number         0  strcat.o ABSOLUTE
     ../clib/microlib/string/strcmp.c         0x00000000   Number         0  strcmp.o ABSOLUTE
+    ../clib/microlib/string/strcpy.c         0x00000000   Number         0  strcpy.o ABSOLUTE
     ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
     ../clib/microlib/string/strncmp.c        0x00000000   Number         0  strncmp.o ABSOLUTE
+    ../clib/microlib/string/strtok.c         0x00000000   Number         0  strtok.o ABSOLUTE
+    ../clib/microlib/string/strtok.c         0x00000000   Number         0  strtok_r.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
@@ -1412,14 +1423,14 @@ Memory Map of the image
 
     0x08002000   0x000000ec   Data   RO           91    RESET               startup_stm32f10x_md.o
     0x080020ec   0x00000000   Code   RO         1042  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x080020ec   0x00000004   Code   RO         1348    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x080020f0   0x00000004   Code   RO         1351    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x080020f4   0x00000000   Code   RO         1353    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x080020f4   0x00000000   Code   RO         1355    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x080020f4   0x00000008   Code   RO         1356    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x080020fc   0x00000000   Code   RO         1358    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x080020fc   0x00000000   Code   RO         1360    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x080020fc   0x00000004   Code   RO         1349    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x080020ec   0x00000004   Code   RO         1358    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x080020f0   0x00000004   Code   RO         1361    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x080020f4   0x00000000   Code   RO         1363    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x080020f4   0x00000000   Code   RO         1365    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x080020f4   0x00000008   Code   RO         1366    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x080020fc   0x00000000   Code   RO         1368    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x080020fc   0x00000000   Code   RO         1370    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x080020fc   0x00000004   Code   RO         1359    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x08002100   0x00000154   Code   RO          662    .emb_text           RTX_CM3.LIB(hal_cm3.o)
     0x08002254   0x000001e8   Code   RO           17    .text               system_stm32f10x.o
     0x0800243c   0x0000000a   Code   RO           66    .text               rtx_conf_cm.o
@@ -1445,23 +1456,23 @@ Memory Map of the image
     0x0800580c   0x00000380   Code   RO          440    .text               app_lib.o
     0x08005b8c   0x00000024   Code   RO         1045    .text               mc_w.l(memcpya.o)
     0x08005bb0   0x00000024   Code   RO         1047    .text               mc_w.l(memseta.o)
-    0x08005bd4   0x0000000e   Code   RO         1049    .text               mc_w.l(strlen.o)
-    0x08005be2   0x0000001a   Code   RO         1053    .text               mc_w.l(memcmp.o)
-    0x08005bfc   0x0000001e   Code   RO         1055    .text               mc_w.l(strncmp.o)
-    0x08005c1a   0x0000002c   Code   RO         1363    .text               mc_w.l(uidiv.o)
+    0x08005bd4   0x0000000e   Code   RO         1051    .text               mc_w.l(strlen.o)
+    0x08005be2   0x0000001a   Code   RO         1055    .text               mc_w.l(memcmp.o)
+    0x08005bfc   0x0000001e   Code   RO         1059    .text               mc_w.l(strncmp.o)
+    0x08005c1a   0x0000002c   Code   RO         1373    .text               mc_w.l(uidiv.o)
     0x08005c46   0x00000002   PAD
-    0x08005c48   0x00000024   Code   RO         1380    .text               mc_w.l(init.o)
+    0x08005c48   0x00000024   Code   RO         1390    .text               mc_w.l(init.o)
     0x08005c6c   0x00000004   Code   RO          922    SVC_TABLE           RTX_CM3.LIB(SVC_Table.o)
-    0x08005c70   0x00000020   Code   RO         1104    i.__0printf$1       mc_w.l(printf1.o)
-    0x08005c90   0x0000000e   Code   RO         1392    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x08005c9e   0x00000002   Code   RO         1393    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08005ca0   0x0000000e   Code   RO         1394    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08005c70   0x00000020   Code   RO         1114    i.__0printf$1       mc_w.l(printf1.o)
+    0x08005c90   0x0000000e   Code   RO         1402    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08005c9e   0x00000002   Code   RO         1403    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08005ca0   0x0000000e   Code   RO         1404    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x08005cae   0x00000046   Code   RO          889    i._init_box         RTX_CM3.LIB(rt_membox.o)
-    0x08005cf4   0x00000154   Code   RO         1111    i._printf_core      mc_w.l(printf1.o)
+    0x08005cf4   0x00000154   Code   RO         1121    i._printf_core      mc_w.l(printf1.o)
     0x08005e48   0x00000030   Code   RO          663    i.dbg_init          RTX_CM3.LIB(hal_cm3.o)
     0x08005e78   0x00000020   Code   RO          664    i.dbg_task_notify   RTX_CM3.LIB(hal_cm3.o)
     0x08005e98   0x00000010   Code   RO          665    i.dbg_task_switch   RTX_CM3.LIB(hal_cm3.o)
-    0x08005ea8   0x0000006c   Code   RO         1321    i.malloc            mc_w.l(malloc.o)
+    0x08005ea8   0x0000006c   Code   RO         1331    i.malloc            mc_w.l(malloc.o)
     0x08005f14   0x00000028   Code   RO          704    i.os_tick_init      RTX_CM3.LIB(rt_system.o)
     0x08005f3c   0x00000002   Code   RO          705    i.os_tick_irqack    RTX_CM3.LIB(rt_system.o)
     0x08005f3e   0x0000001a   Code   RO          890    i.rt_alloc_box      RTX_CM3.LIB(rt_membox.o)
@@ -1502,7 +1513,7 @@ Memory Map of the image
     0x080069cc   0x00000266   Data   RO          393    .constdata          app_plug.o
     0x08006c32   0x00000002   PAD
     0x08006c34   0x00000004   Data   RO          714    .constdata          RTX_CM3.LIB(rt_system.o)
-    0x08006c38   0x00000020   Data   RO         1390    Region$$Table       anon$$obj.o
+    0x08006c38   0x00000020   Data   RO         1400    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00001f30, Max: 0x00005000, ABSOLUTE)
@@ -1524,9 +1535,9 @@ Memory Map of the image
     0x20000078   0x00000008   Data   RW          715    .data               RTX_CM3.LIB(rt_system.o)
     0x20000080   0x00000008   Data   RW          869    .data               RTX_CM3.LIB(rt_robin.o)
     0x20000088   0x00000008   Data   RW         1018    .data               RTX_CM3.LIB(rt_timer.o)
-    0x20000090   0x00000004   Data   RW         1362    .data               mc_w.l(stdout.o)
-    0x20000094   0x00000004   Data   RW         1367    .data               mc_w.l(mvars.o)
-    0x20000098   0x00000004   Data   RW         1368    .data               mc_w.l(mvars.o)
+    0x20000090   0x00000004   Data   RW         1372    .data               mc_w.l(stdout.o)
+    0x20000094   0x00000004   Data   RW         1377    .data               mc_w.l(mvars.o)
+    0x20000098   0x00000004   Data   RW         1378    .data               mc_w.l(mvars.o)
     0x2000009c   0x00000004   PAD
     0x200000a0   0x000017fc   Zero   RW           67    .bss                rtx_conf_cm.o
     0x2000189c   0x00000028   Zero   RW          277    .bss                pack.o
