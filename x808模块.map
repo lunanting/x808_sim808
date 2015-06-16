@@ -606,7 +606,7 @@ Removing Unused input sections from the image.
     Removing core_cm3.o(.emb_text), (32 bytes).
     Removing stm32f10x_exti.o(.text), (284 bytes).
     Removing function.o(.bss), (40 bytes).
-    Removing gps_gprs.o(.text), (556 bytes).
+    Removing gps_gprs.o(.text), (580 bytes).
     Removing gps_gprs.o(.constdata), (20 bytes).
     Removing gps_gprs_lib.o(.text), (972 bytes).
     Removing gps_gprs_lib.o(.bss), (325 bytes).
@@ -646,7 +646,7 @@ Removing Unused input sections from the image.
     Removing cdrcmple.o(.text), (40 bytes).
     Removing depilogue.o(.text), (190 bytes).
 
-42 unused section(s) (total 4867 bytes) removed from the image.
+42 unused section(s) (total 4891 bytes) removed from the image.
 
 ==============================================================================
 

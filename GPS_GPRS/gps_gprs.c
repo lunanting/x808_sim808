@@ -60,7 +60,7 @@ u8 x808_cmd_send(u8 *p)
 ******************************/
 u8 x808_cmd_parsing(char *p)
 {
-	char bf[100]={NULL},cmd[15]={NULL};u8 state;u8 len=0,dr=0;
+	char bf[100]={NULL},cmd[15]={NULL};;u8 len=0,dr=0;
 	char *str=NULL;
 	
 	len=strlen(p);
@@ -72,6 +72,8 @@ u8 x808_cmd_parsing(char *p)
 	memset(cmd,0,4);
 	len=get_enter_lacation(p,1)-3;
 	memcpy(cmd,p+3,len);
+	if(strncmp(cmd,"cgpsout",7)==0)							//gps自动输出
+		return 1;
 	dr=get_blank_lacation(p);
 	if(dr==0){																	//无空格数据
 		len=get_enter_lacation(p,2)-(get_enter_lacation(p,1)+3);
@@ -82,7 +84,7 @@ u8 x808_cmd_parsing(char *p)
 	discern_cmd_type(cmd,bf);											//区分指令类型
 	
 	
-	return state;
+	return 1;
 }
 
 
