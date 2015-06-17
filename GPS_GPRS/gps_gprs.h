@@ -39,7 +39,7 @@ typedef struct
 /***º¯ÊıÉêÃ÷***/
 //gps_gprs.c
 extern GPRS_status deal_data(char *s);
-extern GPRS_status gps_gprs_init(void);
+extern u8 gps_gprs_init(void);
 extern u8 *get_messege(char *data);
 
 

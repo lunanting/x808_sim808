@@ -1,4 +1,4 @@
-ARM Linker, 5.03 [Build 76] [MDK-ARM Professional][RL-ARM]
+ARM Linker, 5.03 [Build 76] [MDK-ARM Standard][RL-ARM]
 
 ==============================================================================
 
@@ -83,9 +83,6 @@ Section Cross References
     gps_gprs.o(.text) refers to strlen.o(.text) for strlen
     gps_gprs.o(.text) refers to memseta.o(.text) for __aeabi_memclr4
     gps_gprs.o(.text) refers to strncmp.o(.text) for strncmp
-    gps_gprs.o(.text) refers to malloc.o(i.malloc) for malloc
-    gps_gprs.o(.text) refers to malloc.o(i.free) for free
-    gps_gprs.o(.text) refers to pack.o(.text) for usart_send_str
     gps_gprs.o(.text) refers to gps_gprs.o(.constdata) for .constdata
     gps_gprs_lib.o(.text) refers to memseta.o(.text) for __aeabi_memclr4
     gps_gprs_lib.o(.text) refers to strcmp.o(.text) for strcmp
@@ -606,9 +603,9 @@ Removing Unused input sections from the image.
     Removing core_cm3.o(.emb_text), (32 bytes).
     Removing stm32f10x_exti.o(.text), (284 bytes).
     Removing function.o(.bss), (40 bytes).
-    Removing gps_gprs.o(.text), (580 bytes).
+    Removing gps_gprs.o(.text), (688 bytes).
     Removing gps_gprs.o(.constdata), (20 bytes).
-    Removing gps_gprs_lib.o(.text), (972 bytes).
+    Removing gps_gprs_lib.o(.text), (992 bytes).
     Removing gps_gprs_lib.o(.bss), (325 bytes).
     Removing gps_gprs_lib.o(.data), (2 bytes).
     Removing rt_task.o(i.rt_tsk_pass), (48 bytes).
@@ -646,7 +643,7 @@ Removing Unused input sections from the image.
     Removing cdrcmple.o(.text), (40 bytes).
     Removing depilogue.o(.text), (190 bytes).
 
-42 unused section(s) (total 4891 bytes) removed from the image.
+42 unused section(s) (total 5019 bytes) removed from the image.
 
 ==============================================================================
 

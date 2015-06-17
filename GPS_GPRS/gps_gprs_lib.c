@@ -95,6 +95,7 @@ GPS_data gps_data(char *p)
 	static GPS_data data={0,0,0,0,0};
 	char bf[30]={NULL},*s=bf;u8 i;
 	if(strcmp(p,"read")==0)return data;
+	if(*(p+14)!='A')return data;							//数据不可用
 	s=strtok(p,",");
 	for(i=0;i<10;i++)
 	{
@@ -162,6 +163,7 @@ u8 get_blank_lacation(char *p)
 返回值：str				指令名称指针
 									***********
 形参：*p						待检测字符串
+			*data				待处理的数据
 									***********
 作用：辨别指令类型
 ******************************************/
@@ -178,11 +180,20 @@ void discern_cmd_type(char *p,char *data)
 	//模块gps状态
 	else if(strncmp(p,"cgpsstatus",10)==0)gprs_state(data,"gps");
 	else if(strncmp(p,"cgpsinf",7)==0)gps_data(data);
+	
 	return ;
 }
 
 
 
+/***发送命令状态处理***/
+/******************************************
+
+******************************************/
+void cmd_state_deal(u8 state)
+{
+	
+}
 
 
 /***处理指令数据***/

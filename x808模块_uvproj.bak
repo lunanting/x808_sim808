@@ -144,7 +144,7 @@
             <UsePdscDebugDescription>1</UsePdscDebugDescription>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>11</TargetSelection>
+          <TargetSelection>-1</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -559,6 +559,11 @@
               <FileName>gps_gprs.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\GPS_GPRS\gps_gprs.h</FilePath>
+            </File>
+            <File>
+              <FileName>x808模块驱动说明.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\GPS_GPRS\x808模块驱动说明.txt</FilePath>
             </File>
           </Files>
         </Group>
