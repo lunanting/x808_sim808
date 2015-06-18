@@ -24,14 +24,14 @@ designed for opration of GPS_GPRS module
 u8 x808_cmd_send(char *p)
 {
 	u8 count=0,bf;
-	char s2[20]="at+";
+	char s2[30]="at+";
 	while(gps_gprs_cmd_state(2)!=0)
 	{
 		x808_delay(1);
 		count++;if(count>200)return 0;			//等待超时，返回0
 	}
 	gps_gprs_cmd_state(1);
-	memcpy(s2+3,p,strlen((char *)p));
+	memcpy(s2+3,p,strlen(p));
 	x808_send(s2);
 	count=0;
 	while(1)
@@ -61,7 +61,7 @@ u8 x808_cmd_send(char *p)
 u8 x808_cmd_parsing(char *p)
 {
 	char bf[100]={NULL},cmd[15]={NULL};;u8 len=0,dr=0;
-	char *str=NULL;
+//	char *str=NULL;
 	
 	len=strlen(p);
 	memcpy(cmd,p,len);
@@ -84,19 +84,19 @@ u8 x808_cmd_parsing(char *p)
 		memcpy(bf,(p+get_blank_lacation(p)+1),len);}
 	discern_cmd_type(cmd,bf);											//区分指令类型并处理数据
 	
-	get_status(1);	
+	get_status(1);
 	return 1;
 }
 
 
 
 /***GPRS模块初始化***/
-u8 gps_gprs_init(void)
+u8 x808_init(void)
 {
 	u8 state=0;
 	u8 data[100];
 	memset(data,0,100);
-	state=x808_cmd_send("cgmm");
+	state=x808_cmd_send("cgmm");					//gprs部分状态信息
 	if(state==3||state==0)return 0;
 	state=x808_cmd_send("cgmr");
 	if(state==3||state==0)return 0;
@@ -108,14 +108,44 @@ u8 gps_gprs_init(void)
 	if(state==3||state==0)return 0;
 	state=x808_cmd_send("csq");
 	if(state==3||state==0)return 0;
-	state=x808_cmd_send("cgpspwr=1");
-	if(state==3||state==0)return 0;
 	
+	state=x808_cmd_send("cgpspwr=1");			//gps部分状态信息
+	if(state==3||state==0)return 0;
 	state=x808_cmd_send("cgpsstatus?");
 	if(state==3||state==0)return 0;
-
 	
+	state=x808_cmd_send("cmgf=1");				//sms部分状态信息
+	if(state==3||state==0)return 0;
+	state=x808_cmd_send("cpms=\"sm\",\"sm\",\"sm\"");
+	if(state==3||state==0)return 0;
+	state=x808_cmd_send("cnmi=2,1");
+	if(state==3||state==0)return 0;
 
+	return 1;
 }
 
+
+
+/***发送短信功能***/
+/******************************************
+返回值：state			信息发送结果
+									************
+形参：*str 				信息内容
+			*num				信息目标号码
+									************
+作用：发送短信消息
+******************************************/
+u8 x808_sms_send(char *str,char *num)
+{
+	char s[20]="cmgs=\"",s1[3]={0x1a};u8 state=0;
+	strcat(s,num);
+	strcat(s,"\"");
+	state=x808_cmd_send(s);
+	if(state==3||state==0)return 0;
+	x808_delay(100);
+	x808_send(str);
+	x808_send(s1);
+	
+	return 1;
+}
 /***end of the file***/
