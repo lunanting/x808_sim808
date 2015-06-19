@@ -179,11 +179,11 @@ void NVIC_Config(void)
 {	
 	NVIC_InitTypeDef NVIC_InitStructure;
 
-	#ifdef VECT_TAB_RAM 
-     NVIC_SetVectorTable(NVIC_VectTab_RAM , 0x2000);  
-	#else 
-     NVIC_SetVectorTable(NVIC_VectTab_FLASH , 0x2000); 
-	#endif  
+//	#ifdef VECT_TAB_RAM 
+//     NVIC_SetVectorTable(NVIC_VectTab_RAM , App_Offset);  
+//	#else 
+//     NVIC_SetVectorTable(NVIC_VectTab_FLASH , App_Offset); 
+//	#endif  
 	//使用一位来表示优先级
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
 
@@ -207,11 +207,11 @@ void NVIC_TIM(TIM_TypeDef* TIMx)
 {
 	NVIC_InitTypeDef NVIC_InitStructure;
 
-	#ifdef VECT_TAB_RAM 
-     NVIC_SetVectorTable(NVIC_VectTab_RAM , 0x2000);  
-	#else 
-     NVIC_SetVectorTable(NVIC_VectTab_FLASH , 0x2000); 
-	#endif  
+//	#ifdef VECT_TAB_RAM 
+//     NVIC_SetVectorTable(NVIC_VectTab_RAM , App_Offset);  
+//	#else 
+//     NVIC_SetVectorTable(NVIC_VectTab_FLASH , App_Offset); 
+//	#endif  
 	//使用一位来表示优先级
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
 	

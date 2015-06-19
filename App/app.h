@@ -12,6 +12,8 @@ by lunanting
 #include "app_lib.h"
 #include "gps_gprs.h"
 
+
+
 /***线程信号量申明***/
 extern OS_SEM u1recsem,sound;
 

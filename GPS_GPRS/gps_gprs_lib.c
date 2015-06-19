@@ -199,6 +199,8 @@ void discern_cmd_type(char *p,char *data)
 void dispose_sms_rec(char *sms)
 {
 	
+	
+	x808_send(sms);
 }
 
 /************************************x808模块与外界接口************************************************/

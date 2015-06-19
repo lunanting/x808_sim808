@@ -22,7 +22,7 @@ void default_setting(u8 config)
 		printf("\r\nDefault show total value \r\n\r\n");
 	else if(config==1)
 		printf("\r\nDefault show detail value \r\n");
-	printf("Notice:Please don't choose the choice: 'Send new line' of the port test chain\r\n");
+	printf("Notice:Please choose the choice: 'Send new line' of the port test chain\r\n");
 	printf("\r\nThis command system design for debugging system\r\n");
 	printf("\r\nDesigned by lunanting       ");
 	printf("lunanting@yeah.net\r\n");

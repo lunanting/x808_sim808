@@ -22,6 +22,9 @@
 #include "globle.h"
 #include "task.h"
 
+
+
+#define App_Offset	0x5000
 //¶¨Òåº¯Êý
 
 /*module.c*/

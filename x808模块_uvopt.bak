@@ -574,10 +574,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>33</ColumnNumber>
+      <ColumnNumber>11</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>84</TopLine>
-      <CurrentLine>108</CurrentLine>
+      <TopLine>114</TopLine>
+      <CurrentLine>149</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\GPS_GPRS\gps_gprs.c</PathWithFileName>
       <FilenameWithoutPath>gps_gprs.c</FilenameWithoutPath>
@@ -590,10 +590,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>1</ColumnNumber>
+      <ColumnNumber>30</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>162</TopLine>
-      <CurrentLine>196</CurrentLine>
+      <TopLine>187</TopLine>
+      <CurrentLine>207</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\GPS_GPRS\gps_gprs_lib.c</PathWithFileName>
       <FilenameWithoutPath>gps_gprs_lib.c</FilenameWithoutPath>
