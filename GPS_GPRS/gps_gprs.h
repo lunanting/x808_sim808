@@ -42,6 +42,7 @@ extern u8 x808_cmd_send(char *p);
 extern u8 x808_init(void);
 extern u8 *get_messege(char *data);
 extern u8 x808_cmd_parsing(char *p);
+extern u8 x808_sms_send(char *str,char *num);
 
 //gps_gprs_lib.c
 extern u8 gps_gprs_cmd_state(u8 rw);
@@ -52,6 +53,7 @@ extern void x808_send(char *p);
 extern u8 get_enter_lacation(char *p,u8 n);
 extern void discern_cmd_type(char *p,char *data);
 extern u8 get_blank_lacation(char *p);
+extern void dispose_sms_rec(char *sms);
 
 #endif
 /***end of the file***/

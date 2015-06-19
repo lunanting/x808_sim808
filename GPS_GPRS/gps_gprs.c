@@ -61,9 +61,12 @@ u8 x808_cmd_send(char *p)
 u8 x808_cmd_parsing(char *p)
 {
 	char bf[100]={NULL},cmd[15]={NULL};;u8 len=0,dr=0;
-//	char *str=NULL;
+	char str[50]={NULL};
 	
 	len=strlen(p);
+	if(strncmp(cmd,"+CMT",4)==0){
+	memcpy(str,(p+get_enter_lacation(p,1)+2),(len-(get_enter_lacation(p,1)+1)));
+	dispose_sms_rec(str);return 1;}
 	memcpy(cmd,p,len);
 	if(strncmp(cmd,"at+",3)!=0)return 0;					//非指令返回数据，返回0
 	memset(cmd,0,len);
@@ -118,7 +121,7 @@ u8 x808_init(void)
 	if(state==3||state==0)return 0;
 	state=x808_cmd_send("cpms=\"sm\",\"sm\",\"sm\"");
 	if(state==3||state==0)return 0;
-	state=x808_cmd_send("cnmi=2,1");
+	state=x808_cmd_send("cnmi=3,2");
 	if(state==3||state==0)return 0;
 
 	return 1;
@@ -145,7 +148,11 @@ u8 x808_sms_send(char *str,char *num)
 	x808_delay(100);
 	x808_send(str);
 	x808_send(s1);
-	
+
 	return 1;
 }
+
+
+
+
 /***end of the file***/
